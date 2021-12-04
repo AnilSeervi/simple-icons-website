@@ -569,10 +569,10 @@ body:not(.dark):not(.light) #color-scheme-system:not(:disabled) {
 /* Grid */
 
 .grid {
-  --grid-width: 13rem;
+  --grid-width: 8rem;
 
   display: grid;
-  gap: 0.75rem;
+  gap: 0.55rem;
   grid-template-columns: repeat(auto-fill, minmax(var(--grid-width), 1fr));
   margin: 0 0 1.5rem;
 }
@@ -611,28 +611,27 @@ body:not(.dark):not(.light) #color-scheme-system:not(:disabled) {
 }
 
 .grid-item__row {
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   width: 100%;
 }
 
 .grid-item__preview {
   --preview-size: 3.5rem;
-
   cursor: default;
   display: block;
   height: var(--preview-size);
-  margin: 1.5rem auto 1rem;
+  margin: 0.5rem auto 0.5rem;
   position: relative;
   width: var(--preview-size);
 }
 
 .grid-item__title {
   font-family: var(--font-family-text);
-  font-size: 1.2rem;
   font-weight: 600;
-  line-height: 1.5rem;
-  margin: 0.4rem 0;
-  padding-right: 1rem;
+  width: 7.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .copy-svg::before {
@@ -694,8 +693,12 @@ body:not(.dark):not(.light) #color-scheme-system:not(:disabled) {
   font-weight: 600;
   letter-spacing: 1px;
   line-height: 1rem;
-  padding: 8px;
-  position: relative;
+  padding: 4px;
+  position: absolute;
+  transform: rotate(90deg);
+  width: 4rem;
+  left: -1.25rem;
+  top: 1.21rem;
 }
 .grid-item__color.contrast-light {
   color: #fff;
@@ -710,7 +713,7 @@ body:not(.dark):not(.light) #color-scheme-system:not(:disabled) {
   font-size: 0.75rem;
   font-weight: 600;
   outline: none;
-  padding: 8px;
+  padding: 8px 4px;
   text-align: center;
 }
 

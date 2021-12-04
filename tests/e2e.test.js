@@ -21,7 +21,7 @@ const {
 jest.retryTimes(3);
 jest.setTimeout(3000);
 
-const COLOR_REGEX = /^#[A-F0-9]{6}$/;
+const COLOR_REGEX = /^[A-F0-9]{6}$/;
 const SVG_REGEX = /^<svg.*>.*<\/svg>$/;
 
 const DEFAULT_DEVICE = {
@@ -125,6 +125,16 @@ describe('External links', () => {
     const extensionPopupLinks = await page.$$('.extensions__table a');
     extensionPopupLinks.forEach((link) =>
       expect(page).toClick(link.getProperty('innerText')),
+    );
+  });
+
+  it('is possible to click outdated icon link', async () => {
+    const reportIcons = await page.$$('a.report__icon');
+    expect(page).toClick(
+      await getAttribute(
+        reportIcons[Math.floor(Math.random() * reportIcons.length)],
+        'href',
+      ),
     );
   });
 });
