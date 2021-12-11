@@ -452,6 +452,13 @@ describe('Grid item', () => {
       await expect(page).toClick('a[download].grid-item__button');
     },
   );
+
+  it.each(['layout-comfortable', 'layout-compact'])(
+    'is possible to click on the "%s" button',
+    async (layoutType) => {
+      await expect(page).toClick(`button#${layoutType}`);
+    },
+  );
 });
 
 describe('JavaScript disabled', () => {

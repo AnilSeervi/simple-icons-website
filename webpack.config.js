@@ -10,7 +10,6 @@ const { normalizeSearchTerm } = require('./public/scripts/utils.js');
 const sortByColors = require('./scripts/color-sorting.js');
 const removedIcons = require('./scripts/removed-icons.js');
 
-//const removedIcons = Object.values(rIcons);
 const icons = Object.values(simpleIcons);
 const sortedHexes = sortByColors(icons.map((icon) => icon.hex));
 
@@ -59,11 +58,11 @@ if (process.env.TEST_ENV) {
 module.exports = (env, argv) => {
   return {
     entry: {
-      index: path.resolve(ROOT_DIR, 'scripts/index.js'),
+      app: path.resolve(ROOT_DIR, 'scripts/index.js'),
     },
     output: {
       path: OUT_DIR,
-      filename: 'index.js',
+      filename: 'script.js',
     },
     module: {
       rules: [
@@ -166,7 +165,7 @@ module.exports = (env, argv) => {
           iconCount: removedIcons.length,
           pageTitle: 'Removed Icons',
           pageDescription:
-            'Removed icons per version. An icon can be removed for many reasons.',
+            "Removed icons in all previous versions. Some icons can't be shown since they were removed because the brand does not allow them to be modified to fit this library.",
           pageUrl: 'https://simpleicons.org/removed',
         },
       }),
