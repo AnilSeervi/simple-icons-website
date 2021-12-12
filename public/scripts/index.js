@@ -13,13 +13,11 @@ import initlayout from './layout';
 
 document.body.classList.remove('no-js');
 
-if (!document.body.classList.contains('removed')) {
-  const storage = newStorage(localStorage);
-  initColorScheme(document, storage);
-  initCopyButtons(window, document, navigator);
-  const orderingControls = initOrdering(document, storage);
-  initSearch(window.history, document, orderingControls, domUtils);
-  initDownloadType(document, storage);
-  initModal(document, domUtils);
-  initlayout(document, storage);
-}
+const storage = newStorage(localStorage);
+initColorScheme(document, storage);
+initCopyButtons(window, document, navigator);
+const orderingControls = initOrdering(document, storage);
+initSearch(window.history, document, orderingControls, domUtils);
+initDownloadType(document, storage);
+initModal(document, domUtils);
+initlayout(document, storage);

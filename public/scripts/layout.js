@@ -15,12 +15,8 @@ export default function initlayout(document, storage) {
   $layoutComfortable.disabled = false;
   $layoutCompact.disabled = false;
 
-  if (storage.hasItem(STORAGE_KEY_LAYOUT)) {
-    const storedlayout = storage.getItem(STORAGE_KEY_LAYOUT);
-    selectlayout(storedlayout);
-  } else {
-    storage.setItem(STORAGE_KEY_LAYOUT, DEFAULT_LAYOUT);
-  }
+  const storedlayout = storage.getItem(STORAGE_KEY_LAYOUT);
+  selectlayout(storedlayout);
 
   $layoutComfortable.addEventListener('click', (event) => {
     event.preventDefault();
@@ -42,6 +38,10 @@ export default function initlayout(document, storage) {
     } else if (selected === LAYOUT_COMPACT) {
       $body.classList.add(LAYOUT_COMPACT);
       $body.classList.remove(LAYOUT_COMFORTABLE);
+    } else {
+      selected = DEFAULT_LAYOUT;
+      $body.classList.remove(LAYOUT_COMFORTABLE, LAYOUT_COMPACT);
+      $body.classList.add(DEFAULT_LAYOUT);
     }
 
     storage.setItem(STORAGE_KEY_LAYOUT, selected);
