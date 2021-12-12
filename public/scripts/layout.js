@@ -18,6 +18,8 @@ export default function initlayout(document, storage) {
   if (storage.hasItem(STORAGE_KEY_LAYOUT)) {
     const storedlayout = storage.getItem(STORAGE_KEY_LAYOUT);
     selectlayout(storedlayout);
+  } else {
+    storage.setItem(STORAGE_KEY_LAYOUT, DEFAULT_LAYOUT);
   }
 
   $layoutComfortable.addEventListener('click', (event) => {
