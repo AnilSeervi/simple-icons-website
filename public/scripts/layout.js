@@ -40,8 +40,6 @@ export default function initlayout(document, storage) {
     } else if (selected === LAYOUT_COMPACT) {
       $body.classList.add(LAYOUT_COMPACT);
       $body.classList.remove(LAYOUT_COMFORTABLE);
-    } else {
-      $body.classList.remove(LAYOUT_COMFORTABLE, LAYOUT_COMPACT);
     }
 
     storage.setItem(STORAGE_KEY_LAYOUT, selected);
